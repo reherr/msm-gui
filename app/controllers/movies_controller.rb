@@ -16,6 +16,16 @@ class MoviesController < ApplicationController
   end
 
   def create
-    
+    m = Movie.new
+    m.title = params("the_title")
+    m.year = params("the_year")
+    m.duration = params("the_duration")
+    m.description = params("the_description")
+    m.image = params("the_image")
+    m.director_id = params("the_director_id")
+
+    m.save
+
+    redirect_to("/movies")
   end
 end
